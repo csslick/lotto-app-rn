@@ -3,7 +3,7 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Button, SafeAreaView } from 'react-native';
 import { useState, useEffect } from 'react';
 
-export default function Home() {
+export default function Home({navigation}) {
   // const navigation = useNavigation();
   // lotto num(6)
   const [lotto, setLotto] = useState([1, 2, 3, 4, 5, 6])
@@ -58,7 +58,7 @@ export default function Home() {
                 borderRadius: 24,
                 justifyContent: 'center', alignItems: 'center'
               }}>
-                <Text style={{ fontSize: 32, color: 'white' }}>{num}</Text>
+                <Text style={{ fontSize: 24, color: 'white' }}>{num}</Text>
               </View>
             )
           })
@@ -66,14 +66,6 @@ export default function Home() {
       </View>
       <View style={{ marginTop: 60 }}>
         <Button onPress={genLotto} title="Generate" />
-      </View>
-      <View style={{marginTop: 100}}>
-        <Button 
-          color='gray'
-          title="이전기록" 
-          onPress={()=>{
-            // navigation.navigate('Recents')
-          }}/>
       </View>
     </SafeAreaView>
   )
