@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, Text, View, Button, SafeAreaView } from 'react-native';
 import { useState, useEffect } from 'react';
 
 export default function App() {
@@ -31,7 +31,7 @@ export default function App() {
   console.log(lotto)
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <Text style={{fontSize: 30, marginBottom: 60}}>Lotto Generator</Text>
       <View style={{flexDirection: 'row'}}>
         {
@@ -53,14 +53,14 @@ export default function App() {
         <Button onPress={genLotto} title="Generate" />
       </View>
       <StatusBar style="auto" />
-    </View>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#ddd',
     alignItems: 'center',
     justifyContent: 'center',
   },
