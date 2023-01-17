@@ -5,6 +5,24 @@ import { useState, useEffect } from 'react';
 export default function App() {
   // lotto num(6)
   const [lotto, setLotto] = useState([1, 2, 3, 4, 5, 6])
+  // color table
+  const color = [
+    // 1...10
+    'gold','gold','gold','gold','gold','gold','gold','gold','gold','gold',
+    // 11...20
+    'blue','blue','blue','blue','blue','blue','blue','blue','blue','blue',
+    // 21...30
+    'red','red','red','red','red','red','red','red','red','red',
+    // 31...40
+    'gray','gray','gray','gray','gray','gray','gray','gray','gray','gray',
+    // 41...45
+    'green','green','green','green','green',
+  ]
+
+  // lotto 번호 종류에 따라 색상 바꿈
+  useEffect(() => {
+    console.log('render')
+  }, [lotto])
 
   // generate lotto num
   const genLotto = () => {    
@@ -38,7 +56,7 @@ export default function App() {
           lotto.map((num, key) => {
             return (
               <View key={key} style={{
-                backgroundColor: 'blue',
+                backgroundColor: color[num-1], // 배열색상값 = 숫자값 - 1
                 width: 48, height: 48, margin: 4,
                 borderRadius: 24,
                 justifyContent: 'center', alignItems: 'center'
@@ -60,7 +78,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#ddd',
+    backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
   },
