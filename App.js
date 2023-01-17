@@ -50,7 +50,7 @@ export default function App() {
         }
       </View>
       <View style={{ marginTop: 60 }}>
-        <Button onPress={genLotto} title="Generate Num" />
+        <Button onPress={genLotto} title="Generate" />
       </View>
       <StatusBar style="auto" />
     </View>
