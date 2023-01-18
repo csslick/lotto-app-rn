@@ -4,25 +4,37 @@ import { SafeAreaView, StyleSheet, Text, View, TextInput } from 'react-native';
 export default function Recents() {
   const API_URL = `https://www.dhlottery.co.kr/common.do?method=getLottoNumber&drwNo=`;
   const [data, setData] = useState();
-
-  useEffect(() => {
-    fetch(API_URL + 1000)
+  const [num, setNum] = useState('');
+  
+  const getRecentLotto = (num) => {
+    fetch(API_URL + num)
       .then(res => res.json())
       .then(data => {
         setData(data)
         console.log(data)
       })
+  }
+
+  useEffect(() => {
+    getRecentLotto(1000)
   }, [])
 
   return (
     <SafeAreaView style={styles.container}>
-      <Text>지난회차</Text>
+      <Text style={{fontSize: 20}}>지난회차 검색</Text>
       <TextInput
         style={{
           borderWidth: 1, padding: 8, margin: 10
         }}
         placeholder='회차 입력'
         keyboardType='numeric'
+        // value={num}
+
+        onChangeText={ (value) => {
+          console.log('submit: ', value)
+          setNum(value)
+          getRecentLotto(value)
+        }}
       />
       {/* 데이터 확인 안하고 넘어가면 UI 랜더링시 에러남 */}
       {
