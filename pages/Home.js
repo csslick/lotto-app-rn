@@ -1,9 +1,8 @@
-// import { useNavigation } from '@react-navigation/native';
-import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Button, SafeAreaView } from 'react-native';
 import { useState, useEffect } from 'react';
 
 export default function Home({navigation}) {
+  console.log(navigation.hasOwnProperty('navigate'))
   // const navigation = useNavigation();
   // lotto num(6)
   const [lotto, setLotto] = useState([1, 2, 3, 4, 5, 6])
@@ -66,6 +65,16 @@ export default function Home({navigation}) {
       </View>
       <View style={{ marginTop: 60 }}>
         <Button onPress={genLotto} title="Generate" />
+      </View>
+      <View style={{marginTop: 100}}>
+        <Button 
+          color='black'
+          title="지난회차보기"
+          onPress={() => navigation.navigate({
+            name: '지난회차보기',
+            test: 'hello'
+          })}
+        />
       </View>
     </SafeAreaView>
   )
