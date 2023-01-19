@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "lotto-app",
-    "slug": "lotto-app",
+    "name": "Lucky Lotto",
+    "slug": "Lucky-Lotto",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -28,6 +28,11 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "b46ed9a9-b68a-410a-b434-c389f02de7ba"
+      }
     }
   }
 }
